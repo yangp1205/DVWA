@@ -2,6 +2,7 @@ FROM docker.io/library/php:8-apache
 WORKDIR /var/www/html
 
 # https://www.php.net/manual/en/image.installation.php
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources
 RUN apt-get update \
  && apt-get install -y zlib1g-dev libpng-dev libjpeg-dev libfreetype6-dev iputils-ping \
  && rm -rf /var/lib/apt/lists/* \
